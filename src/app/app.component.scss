@@ -1,0 +1,182 @@
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+  
+  // Add more column classes as needed...
+  
+  // Add more column classes as needed...
+  
+
+// Add more column classes as needed...
+
+
+// Add more column classes as needed...
+
+// Add more column classes as needed...
+
+ 
+ 
+
+.main_content{
+    position:relative;
+    padding:2rem;    
+    height: 100%;
+    background: url('https://e0.pxfuel.com/wallpapers/619/728/desktop-wallpaper-ui-ui-ux.jpg') no-repeat;
+    background-size: cover;
+    .main-header {
+        width:100%;
+        height: 40px;
+        background-color: #e86e1e;
+        border-radius: 5px;
+    }
+    .main-body {
+        width:100%;
+        height:auto;
+        min-height:100vh;
+        margin:2rem auto;
+        border-radius: 5px;
+        padding: 4rem 5px;
+        .weather_location{
+            padding: 2rem auto;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color:white;
+            svg{
+                width:3rem;
+                height: 4rem;
+            }
+            div {
+                font-size:1.95rem;
+                margin: 0rem 1rem
+            }
+        }
+        .time-span{
+            text-align: center;
+            width: 100%;
+            font-size: 1rem;
+            color:white;
+        }
+        .information-row{
+            margin:4rem 0 0 0;
+            gap:1rem;
+    
+            .col-2{
+                float: left;
+                width: 50%;
+                text-align: center;
+                &:first-child{
+                    background-color: rgba(225,225,225,0.8);
+                    border-radius:15px;
+                    position: relative;
+                    svg{
+                        position : absolute;
+                        top:1rem;
+                        left:1rem;
+                        width: 4rem;
+                        height: 4rem;
+                        color:rgba(127, 140, 141,1.0);
+                    }
+                }
+                .current_temperature{
+                    font-size: 4rem;
+                    color:rgba(41, 128, 185,1.0);
+                    padding:2rem auto;
+                }
+                .temp-description{
+                    div{
+                        float: left;
+                        width: 50%;
+                        text-align: center;
+                        margin: 6rem auto 2rem auto;
+                        color:rgba(41, 128, 185,1.0);
+                        font-size: 2.5rem;
+                    }
+                }
+            }
+        }    
+        .forcast{
+            .forcast-title{
+                font-size:2rem;
+                color:white;
+                font-family: 'Courier New', Courier, monospace;
+                text-align: center;
+                padding:4rem auto;
+            }
+            .forcast-days{
+                div + div + div + div ,
+                div + div + div,
+                div + div ,
+                div {
+                    margin:15px 15px
+                }
+                div{
+                    width: calc(100% / 10);
+                    float: left;
+                    background-color: rgba(127, 140, 141,0.5);
+                    gap: 4px;
+                    border-radius: 10px;
+                    height: 196px;
+                    img {
+                        display: block;
+                        margin: 0.5rem auto;
+                        height: 80px;
+                        width: 80px;
+                    }
+                    .fd-temp{
+                        width: 100% !important;
+                        background-color: transparent !important;
+                        height: 50px !important;
+                        margin: 0 !important;
+                        border-radius: 0px !important;
+     
+                        div{
+                            width: 49% !important;
+                            text-align: center !important;
+                            margin: 0px !important;
+                            height: 50px !important;
+                            background-color: transparent !important;
+                            padding: 3rem auto !important;
+                            line-height: 3rem;
+                            font-size: 2rem;
+                            color:white;
+                            border-radius: 0px !important;
+       
+                            &:first-child  {
+                                border-right: 1px solid rgba(225,225,225,0.6);
+                            }
+                        }
+                    }
+                    .temp-day-name{
+                        width: 100% !important;
+                        height: auto !important;
+                        text-align: center;
+                        color:white;
+                        margin: 0.5rem 0px !important;
+                        font-size: 1.5rem !important;
+                        font-weight: bold;
+                        background-color: transparent !important;
+                    }
+                }
+            }
+        }   
+    }
+ 
+
+}
+
+@media not all and (min-width: 1024px) {
+    .main_content{
+        .main-body{
+            width: 404px !important;
+            margin: 2rem auto;
+
+        }
+    }
+  }
