@@ -27,6 +27,7 @@ body {
     height: 100%;
     background: url('https://e0.pxfuel.com/wallpapers/619/728/desktop-wallpaper-ui-ui-ux.jpg') no-repeat;
     background-size: cover;
+    min-height: 100vh;;
     .main-header {
         width:100%;
         height: 40px;
@@ -35,8 +36,6 @@ body {
     }
     .main-body {
         width:100%;
-        height:auto;
-        min-height:100vh;
         margin:2rem auto;
         border-radius: 5px;
         padding: 4rem 5px;
@@ -110,6 +109,7 @@ body {
                 padding:4rem auto;
             }
             .forcast-days{
+                div + div + div + div + div,
                 div + div + div + div ,
                 div + div + div,
                 div + div ,
@@ -117,7 +117,7 @@ body {
                     margin:15px 15px
                 }
                 div{
-                    width: calc(100% / 10);
+                    width: calc(100% / 13);
                     float: left;
                     background-color: rgba(127, 140, 141,0.5);
                     gap: 4px;
@@ -126,8 +126,8 @@ body {
                     img {
                         display: block;
                         margin: 0.5rem auto;
-                        height: 80px;
-                        width: 80px;
+                        height: 60px;
+                        width: 60px;
                     }
                     .fd-temp{
                         width: 100% !important;
@@ -144,7 +144,7 @@ body {
                             background-color: transparent !important;
                             padding: 3rem auto !important;
                             line-height: 3rem;
-                            font-size: 2rem;
+                            font-size: 1.5rem;
                             color:white;
                             border-radius: 0px !important;
        
@@ -173,10 +173,43 @@ body {
 
 @media not all and (min-width: 1024px) {
     .main_content{
+        width: 100%;
+        height: 100%;
+        background: url('https://e0.pxfuel.com/wallpapers/619/728/desktop-wallpaper-ui-ui-ux.jpg') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        height: 100%;
+        overflow: hidden;
+        min-height: 100vh;
         .main-body{
-            width: 404px !important;
+           //width: 404px !important;
             margin: 2rem auto;
+            padding:0px !important;
 
+            .information-row{
+                .col-2{
+                    width: 100%;
+                    display: block;
+                }
+            }
+            .forcast{
+                margin-top: 2rem !important;
+                div + div + div + div + div,
+                div + div + div + div ,
+                div + div + div,
+                div + div ,
+                div {
+                    margin:15px 15px
+                }
+                .forcast-days{
+                    div{
+                        width: calc(100% / 2.5);
+  
+                    }
+                }
+            }
         }
     }
   }
