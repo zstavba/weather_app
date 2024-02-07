@@ -9,7 +9,7 @@
           <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
         </svg>
         <div>
-          Kopivnik 26 B, 2313 Fram
+          {{ weather.name }}
         </div>        
       </div>
       <div class="time-span">
@@ -22,11 +22,11 @@
           </svg>
           
           <div class="current_temperature">
-            15 °C
+            {{ convertFarenhiet(weather.main.temp).toFixed(2) }} °C
           </div>
           <div class="temp-description">
-            <div>5°C</div>
-            <div>18°C</div>
+            <div>  {{ convertFarenhiet(weather.main.temp_min).toFixed(2) }} °C</div>
+            <div> {{ convertFarenhiet(weather.main.temp_min).toFixed(2) }} °C</div>
           </div>
         </div>
         <div class="forcast">
@@ -68,6 +68,16 @@
               <img src="assets/images/icons/snow.png" alt=""> 
               <div class="temp-day-name">
                 Sobota
+              </div>
+              <div class="fd-temp">
+                <div class="fdt-min">2°C</div>
+                <div class="fdt-max">10°C</div>
+              </div>
+            </div>
+            <div>
+              <img src="assets/images/icons/clear-sky.png" alt=""> 
+              <div class="temp-day-name">
+                Nedelja
               </div>
               <div class="fd-temp">
                 <div class="fdt-min">2°C</div>
