@@ -12,6 +12,8 @@ import { WeatherMain } from './Classes/weather-main';
 import { WeatherSys } from './Classes/weather-sys';
 import { WeatherWind } from './Classes/weather-wind';
 
+import moment from 'moment';
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -36,12 +38,15 @@ export class AppComponent  implements OnInit{
   public weather: Weather = new Weather();
   public weatherList: Array<Weather> = new Array<Weather>()
 
+  public responseTime: any;
 
+  public startTime?: moment.Moment;
 
 
   constructor(private _WeatherService : WeatherService) {}
   
   ngOnInit(): void {
+      this.startTime = moment();      
       this.getList();
       this.getFiveDays();
   }
@@ -65,12 +70,22 @@ export class AppComponent  implements OnInit{
             return item;
           }
         });
+
+        const endTime = moment();
+        const diffMilliseconds = endTime.diff(this.startTime);
+        this.responseTime = (diffMilliseconds / 1000).toFixed(2); // Convert milliseconds to seconds with 2 decimal places
         
+    
+
         
       }
     )
 
   }
+  storeResponseTime(responseTime: number): void {
+    this.responseTime = responseTime;
+  }
+
 
   convertKelvin = (farenheit: number) : number => {
     return (farenheit - 273.15)
