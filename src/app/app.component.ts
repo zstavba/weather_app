@@ -28,16 +28,22 @@ import { WeatherWind } from './Classes/weather-wind';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
+
+// Žan ubij se 
 export class AppComponent  implements OnInit{
   title = 'weather-app';
 
   public weather: Weather = new Weather();
+  public weatherList: Array<Weather> = new Array<Weather>()
+
+
 
 
   constructor(private _WeatherService : WeatherService) {}
   
   ngOnInit(): void {
       this.getList();
+      this.getFiveDays();
   }
 
 
@@ -45,9 +51,25 @@ export class AppComponent  implements OnInit{
     this._WeatherService.getData().subscribe(
       response => {
         this.weather = response;
-        console.log(response)
       }
     )
+  }
+
+  getFiveDays = () => {
+    this._WeatherService.getDataList().subscribe(
+      response => {
+        this.weather.list = response.list;
+
+        this.weatherList = this.weather.list.filter((item: any) => {
+          if(this.isLastHour(item.dt)){
+            return item;
+          }
+        });
+        
+        
+      }
+    )
+
   }
 
   convertKelvin = (farenheit: number) : number => {
@@ -66,10 +88,29 @@ export class AppComponent  implements OnInit{
       return `${newTime.getHours()} : ${newTime.getMinutes()} : ${newTime.getSeconds()}`;
   }
 
+  public  convertDateTime = (timestamp: string | any ): string => {
+    let newTime: Date = new Date(timestamp * 1000);
+    let daysList = ["Nedelja","Ponedeljek","Torek","Sreda","Četrtek", "Petek", "Sobota"]
+    let name = daysList[newTime.getDay()];
+
+    return `${name}`;
+  }
+
+  public isLastHour = (timestamp: number): boolean => {
+    const date = new Date(timestamp * 1000);
+    return (date.getHours() == 22) ? true: false;
+  }
+
   public getWeatherType = (type:string): string => {
     switch(type){
       case 'Clear':
         return 'assets/images/icons/clear-sky.png'
+      break;
+    case 'Clouds':
+        return 'assets/images/icons/clouds.png'
+      break;
+    case 'Rain':
+        return 'assets/images/icons/rain.png'
       break;
     default: 
 

@@ -9,6 +9,7 @@ export class Weather {
     public base: string = '';
     public cod: number = 0;
     public dt: number = 0;
+    public dt_tx: string = '';
     public name: string = '';
     public timezone: number = 0;
     public visibility:  number = 0;
@@ -17,7 +18,9 @@ export class Weather {
     public main: WeatherMain = new WeatherMain();
     public sys:  WeatherSys = new WeatherSys();
     public weather: Array<WeatherInfo> = new Array<WeatherInfo>();
-    public wind: WeatherWind = new WeatherWind()
+    public wind: WeatherWind = new WeatherWind();
+
+    public list: Array<Weather> = new Array<Weather>();
 
     constructor () {}
 

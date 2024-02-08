@@ -51,56 +51,23 @@
             5 dnevna vremenska napoved
           </div>
           <div class="forcast-days">
-            <div>
-                <img src="assets/images/icons/clear-sky.png" alt=""> 
-                <div class="temp-day-name">
-                  Sreda
-                </div>
-                <div class="fd-temp">
-                  <div class="fdt-min">4°C</div>
-                  <div class="fdt-max">12°C</div>
-                </div>
-            </div>
-            <div>
-              <img src="assets/images/icons/rain.png" alt=""> 
-              <div class="temp-day-name">
-                Četrtek
-              </div>
-              <div class="fd-temp">
-                <div class="fdt-min">2°C</div>
-                <div class="fdt-max">9°C</div>
-              </div>
-            </div>
-            <div>
-              <img src="assets/images/icons/clear-sky.png" alt=""> 
-              <div class="temp-day-name">
-                Petek
-              </div>
-              <div class="fd-temp">
-                <div class="fdt-min">-2°C</div>
-                <div class="fdt-max">5°C</div>
-              </div>
-            </div>
-            <div>
-              <img src="assets/images/icons/snow.png" alt=""> 
-              <div class="temp-day-name">
-                Sobota
-              </div>
-              <div class="fd-temp">
-                <div class="fdt-min">2°C</div>
-                <div class="fdt-max">10°C</div>
-              </div>
-            </div>
-            <div>
-              <img src="assets/images/icons/clear-sky.png" alt=""> 
-              <div class="temp-day-name">
-                Nedelja
-              </div>
-              <div class="fd-temp">
-                <div class="fdt-min">2°C</div>
-                <div class="fdt-max">10°C</div>
-              </div>
-            </div>
+            @for(list of weatherList ; track list){
+                  <div>
+                    <img [src]="getWeatherType(list.weather[0].main)" alt=""> 
+                    <div class="temp-day-name">
+                      {{ convertDateTime(list.dt)}}
+                    </div>
+                    <div class="fd-temp">
+                      <div class="fdt-min">
+                        {{ convertKelvin(list.main.temp_min).toFixed(0) }} °C
+                      </div>
+                      <div class="fdt-max">
+                        {{ convertKelvin(list.main.temp_max).toFixed(0) }} °C
+                      </div>
+                    </div>
+                  </div>
+            }
+
           </div>
         </div>
       </div>
