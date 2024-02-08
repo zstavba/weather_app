@@ -50,11 +50,34 @@ export class AppComponent  implements OnInit{
     )
   }
 
-  convertFarenhiet = (farenheit: number) : number => {
+  convertKelvin = (farenheit: number) : number => {
     return (farenheit - 273.15)
   }
 
+  public  convertSunriseTime = (sunrise: number ): string => {
+    let newTime: Date = new Date(sunrise * 1000);
 
-  
+    return `${newTime.getHours()} : ${newTime.getMinutes()}: ${newTime.getSeconds()}`;
+  }
+
+  public convertSunset = (sunset: number): string => {
+      let newTime: Date = new Date(sunset * 1000);
+
+      return `${newTime.getHours()} : ${newTime.getMinutes()} : ${newTime.getSeconds()}`;
+  }
+
+  public getWeatherType = (type:string): string => {
+    switch(type){
+      case 'Clear':
+        return 'assets/images/icons/clear-sky.png'
+      break;
+    default: 
+
+      break;
+    }
+
+    return ''
+  }
+
 
 }

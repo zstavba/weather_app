@@ -65,7 +65,7 @@ body {
         .information-row{
             margin:4rem 0 0 0;
             gap:1rem;
-    
+      
             .col-2{
                 float: left;
                 width: 50%;
@@ -74,7 +74,8 @@ body {
                     background-color: rgba(225,225,225,0.8);
                     border-radius:15px;
                     position: relative;
-                    svg{
+                    height:250px;
+                    img{
                         position : absolute;
                         top:1rem;
                         left:1rem;
@@ -82,22 +83,58 @@ body {
                         height: 4rem;
                         color:rgba(127, 140, 141,1.0);
                     }
-                }
-                .current_temperature{
-                    font-size: 4rem;
-                    color:rgba(41, 128, 185,1.0);
-                    padding:2rem auto;
-                }
-                .temp-description{
-                    div{
-                        float: left;
-                        width: 50%;
-                        text-align: center;
-                        margin: 6rem auto 2rem auto;
-                        color:rgba(41, 128, 185,1.0);
-                        font-size: 2.5rem;
+                    .sunset_sunrise,
+                    .wind{
+                        position: absolute;
+                        top:1rem;
+                        right: 1rem;
+                        span{
+                            color:rgba(211, 84, 0,1.0);
+                            &:first-child{
+                                padding-right: 10px;
+                                border-right: 1px solid rgba(0,0,0,0.8);
+                            }
+                            &:last-child{
+                                padding-left: 5px;;
+                            }
+                        }
+                    }
+                    .wind{
+                        top:2.5rem;
+                        span{
+                            border-right:none;
+                        }
+                    }
+                    .current_temp{
+                        position: absolute;
+                        top:5rem;
+                        font-size:4rem;
+                        color:rgba(44, 62, 80,1.0);
+                        margin: auto;
+                        left:0;
+                        right:0;
+                    }
+                    .min_max{
+                        width: 100%;
+                        position:absolute;
+                        height: 60px;
+                        bottom: 0px;
+                        border-bottom-right-radius: 12px;
+                        border-bottom-left-radius: 12px;
+                        background-color: rgba(149, 165, 166,0.6);
+                        .mm_div{
+                            float:left;
+                            width: 49%;
+                            height: 59px;
+                            font-size: 2rem;
+                            line-height: 3.5rem;
+                            &:first-child{
+                                border-right: 1px solid white;
+                            }
+                        }
                     }
                 }
+
             }
         }    
         .forcast{

@@ -17,18 +17,35 @@
       </div>
       <div class="information-row">
         <div class="col-2">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" />
-          </svg>
-          
-          <div class="current_temperature">
-            {{ convertFarenhiet(weather.main.temp).toFixed(2) }} °C
+          <img [src]="getWeatherType(weather.weather[0].main)" alt="">
+          <div>
+            <div class="sunset_sunrise">
+                <span>
+                  Sončni vzhod: <b><i>{{convertSunriseTime(weather.sys.sunrise)}}</i></b>
+                </span>
+                <span>
+                  Sončni zahod: <b><i>{{ convertSunset(weather.sys.sunset) }}</i></b>
+                </span>
+            </div>
+            <div class="wind">
+              <span>
+                Hitrost vetra: <b><i>{{ weather.wind.speed}} km/h</i></b>
+            </span>
           </div>
-          <div class="temp-description">
-            <div>  {{ convertFarenhiet(weather.main.temp_min).toFixed(2) }} °C</div>
-            <div> {{ convertFarenhiet(weather.main.temp_min).toFixed(2) }} °C</div>
+  
           </div>
-        </div>
+          <div class="current_temp">
+            {{ convertKelvin(weather.main.temp).toFixed(1) }} °C
+          </div>
+          <div class="min_max">
+            <div class="mm_div">
+              {{ convertKelvin(weather.main.temp_min).toFixed(1) }} °C
+            </div>
+            <div class="mm_div">
+              {{ convertKelvin(weather.main.temp_max).toFixed(1) }} °C
+            </div>
+          </div>
+        </div>  
         <div class="forcast">
           <div class="forcast-title">
             5 dnevna vremenska napoved
